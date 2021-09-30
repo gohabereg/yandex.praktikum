@@ -1,0 +1,9 @@
+{
+  "name": "plugin-handlebars",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@inventory/parcel-plugin-handlebars": "^1.0.0"
+  }
+}

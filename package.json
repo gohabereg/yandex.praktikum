@@ -1,0 +1,13 @@
+{
+  "name": "praktikum",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "plugin-handlebars"
+  ],
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}

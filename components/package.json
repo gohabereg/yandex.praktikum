@@ -1,0 +1,24 @@
+{
+  "name": "components",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel public/index.html --no-source-maps",
+    "test": "TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --require ts-node/register src/**/*.spec.ts"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^9.0.0",
+    "@types/sinon": "^10.0.4",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "sinon": "^11.1.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "nanoid": "^3.1.25"
+  }
+}
