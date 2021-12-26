@@ -62,7 +62,7 @@ class Router {
     Router.__instance = this;
   }
 
-  use(pathname: string, block: typeof Block) {
+  public use(pathname: string, block: typeof Block) {
     const route = new Route(pathname, block, {rootQuery: '#app'});
 
     this.routes.push(route);
@@ -70,7 +70,7 @@ class Router {
     return this;
   }
 
-  start() {
+  public start() {
     window.onpopstate = () => {
       this._onRoute(window.location.pathname);
     };
@@ -78,7 +78,20 @@ class Router {
     this._onRoute(window.location.pathname);
   }
 
-  _onRoute(pathname: string) {
+  public go(pathname: string) {
+    this.history.pushState({}, '', pathname);
+    this._onRoute(pathname);
+  }
+
+  public back() {
+    this.history.back();
+  }
+
+  public forward() {
+    this.history.forward();
+  }
+
+  private _onRoute(pathname: string) {
     const route = this.getRoute(pathname);
 
     if (!route) {
@@ -94,21 +107,9 @@ class Router {
     route.render();
   }
 
-  go(pathname: string) {
-    this.history.pushState({}, '', pathname);
-    this._onRoute(pathname);
-  }
 
-  getRoute(pathname: string) {
+  private getRoute(pathname: string) {
     return this.routes.find(route => route.match(pathname));
-  }
-
-  back() {
-    this.history.back();
-  }
-
-  forward() {
-    this.history.forward();
   }
 }
 
